@@ -20,8 +20,6 @@ default = ["nalgebra-backend"]
 
 # LAPACK eigenvalue backend using ndarray-linalg
 lapack-backend = ["dep:ndarray-linalg"]
-# faer eigenvalue backend
-faer-backend = ["dep:faer", "dep:faer-ext"]
 # nalgebra eigenvalue backend
 nalgebra-backend = ["dep:nalgebra"]
 
@@ -37,14 +35,12 @@ intel-mkl-static-lp64-iomp = ["lapack-backend","ndarray-linalg/intel-mkl-static-
 python = ["pyo3", "num-bigfloat"]
 
 [dependencies]
-faer = { version = "0.23", optional = true }
-faer-ext = { version = "0.7", features = ["ndarray"], optional = true }
 itertools = "0.14"
 nalgebra = { version = "0.34", optional = true }
 # ndarray needs to stay at 0.16 because faer-ext 0.7 does not support ndarray 0.17
-ndarray = {version="<0.18"}
+ndarray = {version="^0.17"}
 # ndarray-linalg needs to stay at 0.17 because 0.18 requires ndarray 0.17
-ndarray-linalg = { version = "<0.19", default-features = false, optional = true }
+ndarray-linalg = { version = "0.18", default-features = false, optional = true}
 num-complex = "0.4.3"
 num-bigfloat = { version = "1.7.1", optional = true }
 num-traits = "0.2"
