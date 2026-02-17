@@ -38,7 +38,7 @@ python = ["pyo3", "num-bigfloat"]
 itertools = "0.14"
 nalgebra = { version = "0.34", optional = true }
 # ndarray needs to stay at 0.16 because faer-ext 0.7 does not support ndarray 0.17
-ndarray = {version="^0.17"}
+ndarray = {version= "^0.17", features = ["rayon","serde","matrixmultiply-threading"]} 
 # ndarray-linalg needs to stay at 0.17 because 0.18 requires ndarray 0.17
 ndarray-linalg = { version = "0.18", default-features = false, optional = true}
 num-complex = "0.4.3"
